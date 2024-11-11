@@ -1,0 +1,21 @@
+p {
+    letter-spacing:1px; 
+  }
+
+  
+footer {
+    bottom: 0;
+    padding:1em;
+    background-color: #226D68;
+    color: #FEEAA1;
+    text-align: center;
+    position: static;
+    width: 100%;
+}
+
+a {
+    color: #FEEAA1;
+    text-decoration: none;
+}
+ a:hover{
+    color: #D6955B;}

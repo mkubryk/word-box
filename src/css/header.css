@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  font-family: "Poppins", Georgia, serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: whitesmoke;
+  color: #18534F;
+}
+
+.Title {
+  text-align: center;
+  color: #FEEAA1;
+  padding: 1em;
+}
+
+.header {
+  background: #226D68;
+}
+
+li {
+  list-style-type: none;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0.2%;
+  background-color: #FEEAA1;
+}
+
+.align-redirect-page {
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  background-color: #FEEAA1;
+}
+
+.align-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.align-content>p {
+  margin-right: 0.5em;
+}
+
+.flag-icon-en {
+  background-image: url(../img/us.svg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding :0em;
+  margin: 0.5em;
+  border-radius: 30%;
+
+}
+
+.flag-icon-fr {
+  background-image: url(../img/fr.svg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding :0em;
+  margin: 0.5em;
+  border-radius: 30%;
+}
+
+.navbar a {
+  font-size: 18px;
+  /* color:  #FEEAA1;*/
+  color: #18534F;
+  font-weight: 500;
+  text-decoration: none;
+  margin: 10px;
+  position: relative;
+}
+
+.navbar a::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  height: 2px;
+  background-color: #D6955B;
+  transition: width 0.3s;
+}
+
+.navbar a:hover::before {
+  width: 100%;
+}
+
+.navbar a:hover {
+  color: #226D68
+}
+
+.settings {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.settings i {
+  padding: 1em;
+}
+
+/*****************
+  *  Prévoir css pour theme sombre
+  *****************/
