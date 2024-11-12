@@ -10,7 +10,7 @@ function Header() {
     const { language, setLanguage, languageData } = useLanguage();
     const [userName, setUsername] = useState();
     const [mdp, setMdp] = useState();
-    const { theme, setTheme } = useTheme();
+    const { theme, setTheme, themeData } = useTheme();
     const [errorMessage, setErrorMessage] = useState(""); // Pour afficher les messages d'erreur
 
     const changeTheme = () => {
@@ -99,31 +99,31 @@ function Header() {
     };
 
     return (
-        <header className="header">
-            <div className="Title">
-                <i className="bi bi-book"></i>
+        <header class={themeData.header}>
+            <div class={themeData.title}>
+                <i class="bi bi-book"></i>
                 <h1 style={{ fontFamily: 'Lucida Handwriting' }} data-translate-key="wordBox">
                     Boîte à mot
                 </h1>
             </div>
 
-            <nav className="navbar">
-                <div className="align-redirect-page">
+            <nav class={themeData.navBar}>
+                <div class={themeData.alignRedirectPage}>
                     <li><Link to={`/home`} data-translate-key="home">{languageData.home}</Link></li>
-                    {userName === null && userName === undefined ? (
+                    {!userName ? (
                         <li><Link to={`/connexion`} data-translate-key="connexion">{languageData.connexion}</Link></li>) : ""}
-                    {userName === null && userName === undefined ? (
+                    {!userName ? (
                         <li><Link to={`/inscription`} data-translate-key="signIn">{languageData.signIn}</Link></li>) : ""}
 
                     <li><Link to={`/mes-mots`} data-translate-key="favList">{languageData.favList}</Link></li>
                 </div>
 
-                <div className="settings">
-                    {userName !== null && userName !== undefined ? (
-                        <i className="bi bi-person-check" onClick={handleDisconnection}> {userName}</i>
+                <div class="settings">
+                    { userName ? (
+                        <i class="bi bi-person-check" onClick={handleDisconnection}> {userName}</i>
                     ) : ""}
-                    <i className={`bi ${theme === "light" ? "bi-brightness-high" : "bi-moon-stars-fill"}`} id="theme" onClick={changeTheme}></i>
-                    <i className={`flag-icon-${language === "fr" ? "en" : "fr"}`} id="lang" onClick={changeLang}></i>
+                    <i class={`bi ${theme === "light" ? "bi-brightness-high" : "bi-moon-stars-fill"}`} id="theme" onClick={changeTheme}></i>
+                    <i class={`flag-icon-${language === "fr" ? "en" : "fr"}`} id="lang" onClick={changeLang}></i>
                 </div>
             </nav>
         </header>

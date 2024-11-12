@@ -1,95 +1,85 @@
-# Getting Started with Create React App
+🌟 Guide de Démarrage pour le Projet React
+Bienvenue dans le Projet React ! Ce projet a été initialisé avec Create React App. Suivez les instructions ci-dessous pour configurer votre environnement de développement et lancer le projet.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 Pour Commencer
+Prérequis
+Assurez-vous d'avoir les versions suivantes installées sur votre système :
 
-## Available Scripts
+Node.js v22.11.0 (ou plus récent)
+npm v10.9.0 (ou plus récent)
+Installation de Node.js avec Fast Node Manager (fnm)
+Pour installer Node.js avec fnm :
 
-In the project directory, you can run:
+bash
+Copier le code
+# Installe fnm (Fast Node Manager)
+winget install Schniz.fnm
 
-### `npm start`
+# Configure l'environnement fnm
+fnm env --use-on-cd | Out-String | Invoke-Expression
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Télécharge et installe Node.js
+fnm use --install-if-missing 22
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Vérifie les versions de Node.js et npm
+node -v  # devrait afficher v22.11.0
+npm -v   # devrait afficher 10.9.0
+Pour plus d'options d'installation, consultez le guide officiel de Node.js.
 
-### `npm test`
+📦 Configuration du Projet
+Dans le répertoire du projet, exécutez les commandes suivantes :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Installation des Dépendances
+bash
+Copier le code
+# Installer les dépendances principales
+npm install
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-## Penser à installer les bibliothèques 
+# Installer jQuery et ses types TypeScript (si nécessaire)
 npm install jquery --save
 npm i --save-dev @types/jquery
 
+# Installer React Router
 npm install react-router-dom
 
-## Lancer le server php 
- Dans C:\Users\melis\OneDrive\Documents\ENSIIE\S1\web\PROJET-1\boite-a-mot\word-box>
- php -S localhost:8000 -t server
+# Installer Bootstrap et les icônes Bootstrap
+npm install bootstrap-icons
+npm install bootstrap@5.3.3
+2. Lancer le Serveur de Développement
+Pour démarrer l'application en mode développement :
 
+bash
+Copier le code
+npm start
+Cela lancera le serveur et ouvrira l'application dans votre navigateur par défaut à http://localhost:3000. La page se rechargera automatiquement si vous modifiez le code. Vous pouvez également voir les erreurs de lint dans la console.
 
-##  Bootstrap : 
-npm i bootstrap-icons
+📜 Scripts Disponibles
+Voici quelques scripts utiles que vous pouvez exécuter dans le projet :
 
-npm i bootstrap@5.3.3
+npm start
+Lance l'application en mode développement.
 
-## Utilisation APi Wiktionnary 
-/*
-npm install axios cheerio
+npm test
+Lance le testeur en mode interactif. Pour plus de détails, consultez la documentation sur les tests.
 
-npm install browserify-zlib querystring-es3 path-browserify crypto-browserify stream-browserify buffer util url stream-http
-*/
+npm run build
+Construit l'application pour la production dans le dossier build. Cette commande optimise le build pour une meilleure performance, avec des fichiers minifiés et des noms de fichiers incluant des hashes. Apprenez-en plus sur les builds de production.
 
-Penser à rédiger un script bash qui lance les commandes de lancement de l'appli
+npm run eject
+Attention : Cette opération est irréversible ! Si vous avez besoin de contrôler entièrement la configuration du projet, vous pouvez exécuter cette commande pour éjecter de la configuration par défaut. Notez que cela n'est pas réversible.
+
+🌐 Déploiement
+Pour déployer votre projet, consultez la documentation de déploiement de Create React App.
+
+🛠️ Dépannage
+npm run build échoue à minifier
+Si le build échoue à minifier, suivez les instructions dans le guide de dépannage.
+
+📚 En Savoir Plus
+Documentation Create React App : Commencer
+Documentation React : Apprendre React
+Icônes Bootstrap : Bootstrap Icons
+
+🎉 Remerciements
+
+Bon codage ! 💻🚀

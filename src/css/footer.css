@@ -3,7 +3,7 @@ p {
   }
 
   
-footer {
+.footer {
     bottom: 0;
     padding:1em;
     background-color: #226D68;
@@ -19,3 +19,17 @@ a {
 }
  a:hover{
     color: #D6955B;}
+
+/**************************************
+Theme sombre
+**************************************/
+.dark-footer {
+    bottom: 0;
+    padding:1em;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    position: static;
+    width: 100%;
+}
+

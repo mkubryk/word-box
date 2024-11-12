@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import '../../css/accueil.css';
 import { useLanguage } from '../../store/languageContext';
-import { event } from "jquery";
+import { useTheme } from '../../store/themeContext';
 
 function Home() {
   const [word, setWord] = useState("");
@@ -9,7 +9,7 @@ function Home() {
   const [translatedMot, setTranslatedMot] = useState('');
   const [translatedDefinition, setTranslatedDefinition] = useState('');
   const { language, languageData } = useLanguage();
-
+  const { themeData } = useTheme();
   // Crée une référence pour l'icône de favoris
   const favIconRef = useRef(null);
 
@@ -69,6 +69,10 @@ function Home() {
   }, [language, definition]);
 
   const addFavWords = async () => {
+
+    const motFr = language === 'en' ? await translateText(word, 'fr') : translatedMot;
+    const defFr = language === 'en' ? await translateText(definition, 'fr') : translatedDefinition;
+
     try {
       const response = await fetch('http://localhost/word-box/server/routeur.php', {
         method: 'POST',
@@ -79,8 +83,8 @@ function Home() {
           objet: 'Mot_sympa',
           action: 'createWord',
           nomMot: word,
-          nomMotFr: translatedMot,
-          definitionMotFR: translatedDefinition,
+          nomMotFr: motFr,
+          definitionMotFR: defFr,
           definitionMotENG: definition,
         }),
       });
@@ -123,33 +127,6 @@ function Home() {
     }
   };
 
-  const deleteFavWordsToUser = async (login, numMot) => {
-    try {
-      const response = await fetch('http://localhost/word-box/server/routeur.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-          objet: 'Liste_mot_sympa',
-          action: 'delete',
-          userName: login,
-          numMot: numMot,
-        }),
-      });
-      if (!response.ok) {
-        throw new Error(`Erreur HTTP ! statut : ${response.status}`);
-      }
-
-      const data = await response.json();
-      console.log('Réponse du webservice:', data);
-      return data.data || [];
-    } catch (error) {
-      console.error("Erreur lors de la récupération des mots favoris :", error);
-      return [];
-    }
-  };
-
   // Gestion des favoris
   const supprFavoris = async (word) => {
     const icon = favIconRef.current; // Utilisation de la référence
@@ -167,49 +144,49 @@ function Home() {
     }
     if (icon.classList.contains('bi-suit-heart-fill')) {
       let word = await addFavWords();
-      console.log('mot :',word);
+      console.log('mot :', word);
       let numMot = word.numMot;
       await addFavWordsToUser(user, numMot);
-    } else {
-      await deleteFavWordsToUser(user, word.numMot);
-    }
+    } 
   };
 
   return (
-    <div className="container">
-      <div className="wrapper fit-box center-text">
-        <h2 data-translate-key="titleSearch">{languageData.titleSearch}</h2>
-        <form onSubmit={SearchWord}>
-          <div className="input-box">
-            <input
-              type="text"
-              id="search"
-              name="search"
-              value={word}
-              onChange={(event) => setWord(event.target.value)}
-              placeholder={languageData.enterWord}
-            />
-          </div>
-          <button className="btn" type="submit" data-translate-key="search">{languageData.search}</button>
-        </form>
-      </div>
+    <main class={themeData.main}>
+      <div class="container">
+        <div class={themeData.wrapper+" fit-box center-text"}>
+          <h2 data-translate-key="titleSearch">{languageData.titleSearch}</h2>
+          <form onSubmit={SearchWord}>
+            <div class={themeData.inputBox}>
+              <input
+                type="text"
+                id="search"
+                name="search"
+                value={word}
+                onChange={(event) => setWord(event.target.value)}
+                placeholder={languageData.enterWord}
+              />
+            </div>
+            <button class={themeData.btn} type="submit" data-translate-key="search">{languageData.search}</button>
+          </form>
+        </div>
 
-      {/* Affichage des résultats */}
-      <div className="result">
-        {translatedMot && (
-          <div className="wrapper fit-box center-text">
-            <h1>{translatedMot}</h1>
-            {/* Utilisation de la référence pour l'icône */}
-            <i
-              className="bi bi-suit-heart"
-              ref={favIconRef}
-              onClick={() => supprFavoris(word)}
-            ></i>
-            <p><strong>{languageData.definition}</strong> {translatedDefinition || languageData.loading}</p>
-          </div>
-        )}
+        {/* Affichage des résultats */}
+        <div class="result">
+          {translatedMot && (
+            <div class="wrapper fit-box center-text">
+              <h1>{translatedMot}</h1>
+              {/* Utilisation de la référence pour l'icône */}
+              <i
+                class="bi bi-suit-heart"
+                ref={favIconRef}
+                onClick={() => supprFavoris(word)}
+              ></i>
+              <p><strong>{languageData.definition}</strong> {translatedDefinition || languageData.loading}</p>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
 

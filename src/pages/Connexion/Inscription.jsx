@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import '../../css/inscription.css';
 import { useLanguage } from '../../store/languageContext';
+import { useTheme } from '../../store/themeContext';
 import React, { useState } from "react";
 
 function Inscription() {
@@ -10,6 +11,8 @@ function Inscription() {
     const [errorMessage, setErrorMessage] = useState(""); // Pour afficher les messages d'erreur
     const [nom, setNom] = useState("");
     const [prenom, setPrenom] = useState("");
+    const {themeData} = useTheme();
+
     
     // Fonction pour vérifier les identifiants via le backend PHP
     const submitInscription = async () => {
@@ -54,12 +57,12 @@ function Inscription() {
         }
     };
     return (
-        <main>
+        <main class={themeData.main}>
 
-            <div class="wrapper">
+            <div class={themeData.wrapper}>
                 <form onSubmit={handleSubmit}>
                     <h1 data-translate-key="signIn">{languageData.signIn}</h1>
-                    <div class="input-box">
+                    <div class={themeData.inputBox}>
                         <input 
                         type="text"
                          name="nomClient"
@@ -69,7 +72,7 @@ function Inscription() {
                           required />
                         <i class='bx bxs-user'></i>
                     </div>
-                    <div class="input-box">
+                    <div class={themeData.inputBox}>
                         <input 
                         type="text"
                          name="prenomClient"
@@ -79,7 +82,7 @@ function Inscription() {
                           required />
                         <i class='bx bxs-user'></i>
                     </div>
-                    <div class="input-box">
+                    <div class={themeData.inputBox}>
                         <input type="text" name="login"
                          placeholder={languageData.username} 
                          value={login}
@@ -87,7 +90,7 @@ function Inscription() {
                          required />
                         <i class='bx bxs-user-circle'></i>
                     </div>
-                    <div class="input-box">
+                    <div class={themeData.inputBox}>
                         <input type="password" name="mdp" 
                         placeholder={languageData.password}
                         value={mdp}     
@@ -98,10 +101,10 @@ function Inscription() {
                     </div>
                    
 
-                    <div class="souvenir-oublie">
+                    <div class={themeData.souvenirOublie}>
                         <Link to="/connexion" data-translate-key="connect" >{languageData.connect}</Link>
                     </div>
-                    <button type="submit" class="btn link-color" data-translate-key="register" >{languageData.register}</button>
+                    <button type="submit" class={themeData.btn+" link-color" } data-translate-key="register" >{languageData.register}</button>
                 </form>
             </div>
         </main>

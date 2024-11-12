@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import '../../css/inscription.css';
 import { useLanguage } from '../../store/languageContext';
+import { useTheme } from '../../store/themeContext';
 
 function Connexion() {
 
     const { languageData } = useLanguage();
+    const {themeData} = useTheme();
+
     // Déclarez les états pour les champs du formulaire et les messages d'erreur
     const [login, setLogin] = useState("");
     const [mdp, setMdp] = useState("");
@@ -50,12 +53,12 @@ function Connexion() {
         }
     };
     return (
-        <main>
-            <div className="wrapper">
+        <main class={themeData.main}>
+            <div class={themeData.wrapper}>
                 <form onSubmit={handleSubmit}>
                     <h1 data-translate-key="connexion">{languageData.connexion}</h1>
                   
-                    <div className="input-box">
+                    <div class={themeData.inputBox}>
                         <input
                             type="text"
                             name="login"
@@ -63,12 +66,11 @@ function Connexion() {
                             placeholder={languageData.username}
                             required
                             value={login}
-                            onChange={(e) => setLogin(e.target.value)} // Met à jour l'état
+                            onChange={(e) => setLogin(e.target.value)} 
                         />
-                        <i className='bx bxs-user'></i>
                     </div>
 
-                    <div className="input-box">
+                    <div class={themeData.inputBox}>
                         <input
                             type="password"
                             name="mdp"
@@ -76,25 +78,17 @@ function Connexion() {
                             placeholder={languageData.password}
                             required
                             value={mdp}
-                            onChange={(e) => setMdp(e.target.value)} // Met à jour l'état
+                            onChange={(e) => setMdp(e.target.value)} 
                         />
-                        <i className='bx bxs-lock-alt'></i>
                     </div>
 
-                    {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Affiche les erreurs */}
+                    {errorMessage && <p class="error-message">{errorMessage}</p>} {/* Affiche les erreurs */}
 
-                    <button type="submit" className="btn" data-translate-key="connect">{languageData.connect} </button>
+                    <button type="submit" class={themeData.btn} data-translate-key="connect">{languageData.connect} </button>
                 </form>
 
-                <div className="souvenir-oublie">
-                    <input type="checkbox" />
-                    <label data-translate-key="rememberMe">{languageData.rememberMe}</label>
-
-                    <Link to="/mdp-oublie" data-translate-key="forgotPassword">{languageData.forgotPassword}</Link>
-                </div>
-
-                <div className="lien-inscription">
-                    <div className="align-content">
+                <div class="lien-inscription">
+                    <div class="align-content">
                         <p data-translate-key="createAccount">{languageData.createAccount} </p>
                         <Link to="/inscription" data-translate-key="register">{languageData.register}</Link>
                     </div>
