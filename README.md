@@ -45,6 +45,7 @@ npm install react-router-dom
 # Installer Bootstrap et les icônes Bootstrap
 npm install bootstrap-icons
 npm install bootstrap@5.3.3
+
 2. Lancer le Serveur de Développement
 Pour démarrer l'application en mode développement :
 
