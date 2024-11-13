@@ -1,5 +1,6 @@
 {
   "name": "word-box",
+  "homepage": "http://localhost/word-box/build",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -29,6 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:production": "cross-env NODE_ENV=production npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -51,6 +53,7 @@
     ]
   },
   "devDependencies": {
-    "@types/jquery": "^3.5.32"
+    "@types/jquery": "^3.5.32",
+    "cross-env": "^7.0.3"
   }
 }

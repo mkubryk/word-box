@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/word-box/build/static/css/main.27ea2caa.css",
+    "main.js": "/word-box/build/static/js/main.2f15b49a.js",
+    "static/js/453.65d688cb.chunk.js": "/word-box/build/static/js/453.65d688cb.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/word-box/build/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/word-box/build/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
+    "index.html": "/word-box/build/index.html",
+    "static/media/us.svg": "/word-box/build/static/media/us.ff4b19abc76cc8a700be.svg",
+    "static/media/fr.svg": "/word-box/build/static/media/fr.ed800e0ac1837d591b7e.svg",
+    "main.27ea2caa.css.map": "/word-box/build/static/css/main.27ea2caa.css.map",
+    "main.2f15b49a.js.map": "/word-box/build/static/js/main.2f15b49a.js.map",
+    "453.65d688cb.chunk.js.map": "/word-box/build/static/js/453.65d688cb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.27ea2caa.css",
+    "static/js/main.2f15b49a.js"
+  ]
+}
