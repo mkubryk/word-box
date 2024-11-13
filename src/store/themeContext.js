@@ -1,6 +1,6 @@
 import React, { createContext, useState,useEffect, useContext } from 'react';
 
-export const classByTheme = {
+const classByTheme = {
     light: {
         wrapper: "wrapper",
         inputBox: "input-box",
